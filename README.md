@@ -1,6 +1,6 @@
 # powerpointer-Derur
-Fork of Powerpointer by CyberTimon
-
+Fork of Powerpointer by CyberTimon who use g4f
+Форк Powerpointer от CyberTimon, который использует g4f
 
 To work with this
 1. Clone repository
