@@ -135,8 +135,8 @@ def generate_ppt(prompt, add_info, slides, theme):
         print("Invalid theme number, default theme will be applied.")
     #    print("Неверный номер темы, будет использоватся стандартная.")
     
-    print("Generating the powerpoint, this could take some time depending on your gpu...\n")
-  #  print("Генерация презинтации, это зависит от вашего GPU...\n")
+    print("Generating the powerpoint, this could take some time depending on your internet...\n")
+ #   print("Генерация презинтации, это зависит от вашего интернета...\n")
     
     with open(f'temp/{prompt}.txt', 'w', encoding='utf-8') as f:
         f.write(create_ppt_text(prompt, slides, add_info))
@@ -147,24 +147,23 @@ def generate_ppt(prompt, add_info, slides, theme):
 # The main function
 def main():
     print("Welcome to the powerpoint generator! Updated and fixed Derur")
-    topic = input("Topic for the powerpoint: ")
+    topic = input("Theme for the powerpoint: ")
     add_info = input("Consider this in the powerpoint (enter if none): ")
-  #  print("Добро пожаловать в генератор презентаций! Улучшено, исправлено и переведено Derur")
-  #  topic = input("Тема презинтации: ")
+ #   print("Добро пожаловать в генератор презентаций! Улучшено, исправлено и переведено Derur")
+#    topic = input("Тема презинтации: ")
   #  add_info = input("Посмотреть это в powerpoint (enter если нет): ") #???????
     if not add_info:
         add_info = ""
     slides = input("Number of slides: ")
-    theme = int(input("Select theme of the powerpoint (1-7): "))
-   # slides = input("Количество слайдов: ")
-   # theme = int(input("Выберите тему презентации (1-7): "))
-   # theme = int(input("Выберите стиля презентации (1-7): "))
+    theme = int(input("Select desing of the powerpoint (1-7): "))
+  #  slides = input("Количество слайдов: ")
+   # theme = int(input("Выберите дизайн презентации (1-7): "))
     start_time = time.time()
     print ("Generated and saved under:", generate_ppt(topic, add_info, slides, theme))
- #   print ("Сгенерировано и сохранено под", generate_ppt(topic, add_info, slides, theme))
+   # print ("Сгенерировано и сохранено под", generate_ppt(topic, add_info, slides, theme))
     end_time = time.time()
     print ("Time used for generating:", round((end_time - start_time), 2))
- #   print ("Сколько заняла генерация:", round((end_time - start_time), 2))
+  #  print ("Сколько заняла генерация:", round((end_time - start_time), 2))
     if os.path.exists("temp"):
         shutil.rmtree("temp")
     
