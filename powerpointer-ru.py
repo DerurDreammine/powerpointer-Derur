@@ -124,19 +124,19 @@ def create_ppt(text_file, design_number, ppt_name):
 def generate_ppt(prompt, add_info, slides, theme):
     prompt = re.sub(r'[^\w\s.\-\(\)]', '', prompt)
     if not theme:
-        print("No theme selected, using default theme.")
-      #  print("Тема не выбрана, используется стандартная.")
+      #  print("No theme selected, using default theme.")
+        print("Тема не выбрана, используется стандартная.")
     if theme > 7:
         theme = 1
-        print("Invalid theme number, default theme will be applied.")
-      #  print("Неверный номер темы, будет использоватся стандартная.")
+        #print("Invalid theme number, default theme will be applied.")
+        print("Неверный номер темы, будет использоватся стандартная.")
     elif theme == 0:
         theme = 1
-        print("Invalid theme number, default theme will be applied.")
-    #    print("Неверный номер темы, будет использоватся стандартная.")
+   #     print("Invalid theme number, default theme will be applied.")
+        print("Неверный номер темы, будет использоватся стандартная.")
     
-    print("Generating the powerpoint, this could take some time depending on your gpu...\n")
-  #  print("Генерация презинтации, это зависит от вашего GPU...\n")
+  #  print("Generating the powerpoint, this could take some time depending on your gpu...\n")
+    print("Генерация презинтации, это зависит от вашего GPU...\n")
     
     with open(f'temp/{prompt}.txt', 'w', encoding='utf-8') as f:
         f.write(create_ppt_text(prompt, slides, add_info))
@@ -146,25 +146,25 @@ def generate_ppt(prompt, add_info, slides, theme):
 
 # The main function
 def main():
-    print("Welcome to the powerpoint generator! Updated and fixed Derur")
-    topic = input("Topic for the powerpoint: ")
-    add_info = input("Consider this in the powerpoint (enter if none): ")
-  #  print("Добро пожаловать в генератор презентаций! Улучшено, исправлено и переведено Derur")
-  #  topic = input("Тема презинтации: ")
-  #  add_info = input("Посмотреть это в powerpoint (enter если нет): ") #???????
+   # print("Welcome to the powerpoint generator! Updated and fixed Derur")
+ #   topic = input("Topic for the powerpoint: ")
+ #   add_info = input("Consider this in the powerpoint (enter if none): ")
+    print("Добро пожаловать в генератор презентаций! Улучшено, исправлено и переведено Derur")
+    topic = input("Тема презинтации: ")
+    add_info = input("Посмотреть это в powerpoint (enter если нет): ") #???????
     if not add_info:
         add_info = ""
-    slides = input("Number of slides: ")
-    theme = int(input("Select theme of the powerpoint (1-7): "))
-   # slides = input("Количество слайдов: ")
+   # slides = input("Number of slides: ")
+   # theme = int(input("Select theme of the powerpoint (1-7): "))
+    slides = input("Количество слайдов: ")
    # theme = int(input("Выберите тему презентации (1-7): "))
-   # theme = int(input("Выберите стиля презентации (1-7): "))
+    theme = int(input("Выберите стиля презентации (1-7): "))
     start_time = time.time()
-    print ("Generated and saved under:", generate_ppt(topic, add_info, slides, theme))
- #   print ("Сгенерировано и сохранено под", generate_ppt(topic, add_info, slides, theme))
+  #  print ("Generated and saved under:", generate_ppt(topic, add_info, slides, theme))
+    print ("Сгенерировано и сохранено под", generate_ppt(topic, add_info, slides, theme))
     end_time = time.time()
-    print ("Time used for generating:", round((end_time - start_time), 2))
- #   print ("Сколько заняла генерация:", round((end_time - start_time), 2))
+  #  print ("Time used for generating:", round((end_time - start_time), 2))
+    print ("Сколько заняла генерация:", round((end_time - start_time), 2))
     if os.path.exists("temp"):
         shutil.rmtree("temp")
     
